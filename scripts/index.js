@@ -1,3 +1,5 @@
+
+
 (function($){
     // can do something like 
     const COMMAND={
@@ -10,7 +12,7 @@
     function sendCommand(cmd){
         $.ajax({
             type:"GET",
-            url:"http://192.168.1.7/sendCommand/"+cmd,
+            url:"/sendCommand/"+cmd,
             success:function(response){
                 if(response.ok){
                     toggleMessage("Thành công")
@@ -43,11 +45,7 @@
     }
    
     $(document).ready(function(){
-        const jqueryScript=document.createElement("script");
-        jqueryScript.src="https://code.jquery.com/jquery-3.7.1.min.js"
-        jqueryScript.integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        jqueryScript.crossOrigin="anonymous"
-        document.body.appendChild(jqueryScript);
+       
         initUI();
         $("#btnForward").on("click",function(){sendCommand(COMMAND.Forward)})
         $("#btnBackward").on("click",function(){sendCommand(COMMAND.Backward)})
