@@ -1,5 +1,5 @@
-$(function(){
-    
+(function($){
+    // can do something like 
     const COMMAND={
         Forward:"F",
         Backward:"B",
@@ -43,6 +43,11 @@ $(function(){
     }
    
     $(document).ready(function(){
+        const jqueryScript=document.createElement("script");
+        jqueryScript.src="https://code.jquery.com/jquery-3.7.1.min.js"
+        jqueryScript.integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        jqueryScript.crossOrigin="anonymous"
+        document.body.appendChild(jqueryScript);
         initUI();
         $("#btnForward").on("click",function(){sendCommand(COMMAND.Forward)})
         $("#btnBackward").on("click",function(){sendCommand(COMMAND.Backward)})
@@ -50,5 +55,5 @@ $(function(){
         $("#btnRight").on("click",function(){sendCommand(COMMAND.Right)})
         $("#btnStop").on("click",function(){sendCommand(COMMAND.Stop)})
     })
-
-})
+  
+})(jQuery);
