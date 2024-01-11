@@ -37,7 +37,7 @@
                 <button id="btnRight" class="btn btn-success btn-lg">Right</button>
             </div>
             <div class="mt-5">
-                <button id="btnBackWard" class="btn btn-success btn-lg">Backward</button>
+                <button id="btnBackward" class="btn btn-success btn-lg">Backward</button>
             </div>
         </div>
     </center>`
