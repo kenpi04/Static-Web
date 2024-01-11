@@ -3,3 +3,4 @@ function sendCommand(command) {
     xhr.open('POST','/sendCommand', true)
     ;xhr.send("data="+command);
 }
+console.log("hello")
