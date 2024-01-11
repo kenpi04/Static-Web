@@ -13,8 +13,8 @@
         $.ajax({
             type:"GET",
             url:"/sendCommand/"+cmd,
-            success:function(response){
-                if(response.ok){
+            success:function(response,status){
+                if(status=="ok"){
                     toggleMessage("Thành công")
                 }
             }
