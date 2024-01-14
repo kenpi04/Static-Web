@@ -77,7 +77,7 @@
       $("#btnAuto").attr("disabled", false);
     });
     $("#btnAuto").on("click", function () {
-      sendCommand(COMMAND.Wifi);
+      sendCommand(COMMAND.Auto);
       $(this).attr("disabled", true);
       $("#btnWifi").attr("disabled", false);
     });
