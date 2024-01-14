@@ -7,6 +7,7 @@
     Stop: "S",
     Right: "R",
     Wifi: "WIFI",
+    StopOnWifi: "ZZZ",
     Auto: "AUTO",
   };
   function sendCommand(cmd) {
@@ -56,16 +57,20 @@
 
   $(document).ready(function () {
     initUI();
-    $("#btnForward").on("click", function () {
+    $("#btnForward,#btnBackward,#btnLeft,#btnRight").on("mouseup", function () {
+      sendCommand(COMMAND.StopOnWifi);
+    });
+
+    $("#btnForward").on("mousedown", function () {
       sendCommand(COMMAND.Forward);
     });
-    $("#btnBackward").on("click", function () {
+    $("#btnBackward").on("mousedown", function () {
       sendCommand(COMMAND.Backward);
     });
-    $("#btnLeft").on("click", function () {
+    $("#btnLeft").on("mousedown", function () {
       sendCommand(COMMAND.Left);
     });
-    $("#btnRight").on("click", function () {
+    $("#btnRight").on("mousedown", function () {
       sendCommand(COMMAND.Right);
     });
     $("#btnStop").on("click", function () {
@@ -75,11 +80,13 @@
       sendCommand(COMMAND.Wifi);
       $(this).attr("disabled", true);
       $("#btnAuto").attr("disabled", false);
+      $("#btnForward,#btnBackward,#btnLeft,#btnRight").attr("disabled", false);
     });
     $("#btnAuto").on("click", function () {
       sendCommand(COMMAND.Auto);
       $(this).attr("disabled", true);
       $("#btnWifi").attr("disabled", false);
+      $("#btnForward,#btnBackward,#btnLeft,#btnRight").attr("disabled", true);
     });
   });
 })(jQuery);
