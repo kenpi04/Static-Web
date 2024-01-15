@@ -88,5 +88,37 @@
       $("#btnWifi").attr("disabled", false);
       $("#btnForward,#btnBackward,#btnLeft,#btnRight").attr("disabled", true);
     });
+
+    $("#btnForward,#btnBackward,#btnLeft,#btnRight").on("touchech", function () {
+      sendCommand(COMMAND.StopOnWifi);
+    });
+
+    $("#btnForward").on("touchstart", function () {
+      sendCommand(COMMAND.Forward);
+    });
+    $("#btnBackward").on("touchstart", function () {
+      sendCommand(COMMAND.Backward);
+    });
+    $("#btnLeft").on("touchstart", function () {
+      sendCommand(COMMAND.Left);
+    });
+    $("#btnRight").on("touchstart", function () {
+      sendCommand(COMMAND.Right);
+    });
+    $("#btnStop").on("touchstart", function () {
+      sendCommand(COMMAND.Stop);
+    });
+    $("#btnWifi").on("click", function () {
+      sendCommand(COMMAND.Wifi);
+      $(this).attr("disabled", true);
+      $("#btnAuto").attr("disabled", false);
+      $("#btnForward,#btnBackward,#btnLeft,#btnRight").attr("disabled", false);
+    });
+    $("#btnAuto").on("click", function () {
+      sendCommand(COMMAND.Auto);
+      $(this).attr("disabled", true);
+      $("#btnWifi").attr("disabled", false);
+      $("#btnForward,#btnBackward,#btnLeft,#btnRight").attr("disabled", true);
+    });
   });
 })(jQuery);
